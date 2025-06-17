@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="../styles/main.css" rel="stylesheet" type="text/css">
+
+</head>
+<body>
+    <h1>
+        What are the best practices associated with using <em>classes</em> vs. <em>ids</em>?
+    </h1>
+    <p>When building a website, we want to style parts of it differently. In HTML and CSS, we use <strong>class</strong> and <strong>id</strong> to do this. Both are tools to select elements and change how they look, but they are used in different ways.</p>
+    
+
+    <p>When building a website, we often want to style parts of it differently. In <strong>HTML</strong> and <strong>CSS</strong>, we use <strong>class</strong> and <strong>id</strong> to do this. Both are tools to select elements and change how they look, but they are used in different ways.</p>
+
+    <div class="class">
+        <p>A <strong>class</strong> is used when we want to style <strong>many elements the same way</strong>. For example, if we want several paragraphs to be red, we give them all the same class, like <code>class="red-text"</code>, and in the CSS we write a rule for <code>.red-text</code>. This makes it easy to reuse styles and keep our code clean.</p>
+        <p><pre><code>
+            &lt;p class="red-text"&gt;Hello&lt;/p&gt;
+            &lt;h1 class="red-text"&gt;Welcome&lt;/h1&gt;
+            
+            .red-text {
+                color: red;
+            }
+        </code></pre></p>
+    </div>
+
+    <div class="id">
+        <p>An <strong>id</strong> is used when we want to style <strong>only one unique element</strong>. For example, the main title on a page might have <code>id="main-title"</code>. We use <code>#main-title</code> in CSS to style it. IDs must be <strong>unique</strong>—you can only use the same ID once on a page.</p>
+        <p><pre><code>
+            &lt;p id="main-text"&gt;Hello&lt;/p&gt;
+            
+            #main-text {
+                font-size: 20px;
+            }
+        </code></pre></p>
+    </div>
+
+    <div class="classid">
+        <p>Sometimes, we use <strong>both class and id together</strong>. This is useful when an element needs both shared styles (from the class) and special styles (from the ID). For example, a heading can have <code>class="title"</code> and <code>id="main-title"</code> at the same time.</p>
+        
+    
+        <pre><code>
+            &lt;p id="main-text" class="red-text"&gt;Hello!&lt;/p&gt;
+
+            #main-text {
+                font-size: 24px;
+            }
+
+            .red-text {
+                color: red;
+            }
+</code></pre>
+</div>
+
+
+    <p><strong>In summary</strong>, classes are for <strong>reusable styles</strong>, and IDs are for <strong>unique elements</strong>. Knowing when and how to use them helps us write <strong>better</strong> and <strong>more organized</strong> web pages.</p>
+    
+
+</body>
+</html>
