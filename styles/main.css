@@ -77,4 +77,7 @@ footer {
 }
 
 
-
+/* To make text in identity-values blog post more readable. */
+.identity-values {
+  line-height: 1.6;
+}
