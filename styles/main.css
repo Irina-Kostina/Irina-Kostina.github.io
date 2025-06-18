@@ -9,7 +9,7 @@ body{
   background-color: #E3DBD4;
   color: #484848;
   font-family: "Literata", serif;
-  padding: 0 100px 0 100px;
+  padding: 0 150px 0 150px;
   margin: 0;
 }
 
@@ -40,36 +40,81 @@ body{
   
 }
 
-img {
+header img {
   width: 50px;
   height: auto;
   padding: 0;
   margin: 0;
 }
 
+/* 1st part - intro */
 .intro img {
   width: 400px;
   height: auto;
   border-radius: 20px;
+  max-width: 100%;
 }
 
 .intro {
   display: flex;
-  gap: 50px;
+  align-items: center;
+  justify-content: center;
+  gap: 25rem;
+  flex-wrap: wrap;
+  margin-bottom: 50px;
+  
+  
+}
+
+/* stack them on small screens */
+@media (max-width: 768px) {
+  .intro, .about-me {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+    
+  }
+
+  .intro img, .about-me img {
+    max-width: 100%;
+  }
+
+  body {
+    padding: 0 20px 0 20px;
+  }
+
+  .intro h1, .about-me h1 {
+  font-size: clamp(1.5rem, 2vw, 5rem);
+  }
+
+  
+
 }
 
 
 
+
+/* 2nd part - about me */
 .about-me {
   font-family: "Roboto", sans-serif;
   display: flex;
-  gap: 50px;
+  align-items: center;
+  justify-content: center;
+  gap: 25rem;
+  flex-wrap: wrap;
+  margin-bottom: 50px;
 }
 
 .about-me img {
   width: 400px;
   height: auto;
   border-radius: 20px;
+  max-width: 100%;
+}
+
+.about-me p {
+  width: 500px;  
+  height: 200px;
 }
 
 footer {
