@@ -77,7 +77,7 @@ footer {
 }
 
 
-/* To make text in identity-values blog post more readable. */
-.identity-values {
+/* To make text in identity-values blog post and learning plan blog post more readable. */
+.style {
   line-height: 1.6;
 }
