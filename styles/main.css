@@ -5,10 +5,10 @@ header {
   padding: 20px 40px;
 }
 
-body{
-  background-color: #E3DBD4;
+body {
+  background-color: #e3dbd4;
   color: #484848;
-  font-family: "Literata", serif;
+  font-family: 'Literata', serif;
   padding: 0 150px 0 150px;
   margin: 0;
 }
@@ -31,13 +31,11 @@ body{
   border-radius: 30px;
   font-weight: 450;
   transition: background-color 0.3s, color 0.3s;
-    
 }
 
 .menu a:hover {
-  color: #E3DBD4;
+  color: #e3dbd4;
   background-color: #484848;
-  
 }
 
 header img {
@@ -59,23 +57,22 @@ header img {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 25rem;
+  gap: 2rem;
   flex-wrap: wrap;
   margin-bottom: 50px;
-  
-  
 }
 
 /* stack them on small screens */
 @media (max-width: 768px) {
-  .intro, .about-me {
+  .intro,
+  .about-me {
     flex-direction: column;
     text-align: center;
     gap: 1rem;
-    
   }
 
-  .intro img, .about-me img {
+  .intro img,
+  .about-me img {
     max-width: 100%;
   }
 
@@ -83,24 +80,19 @@ header img {
     padding: 0 20px 0 20px;
   }
 
-  .intro h1, .about-me h1 {
-  font-size: clamp(1.5rem, 2vw, 5rem);
+  .intro h1,
+  .about-me h1 {
+    font-size: clamp(1.5rem, 2vw, 5rem);
   }
-
-  
-
 }
-
-
-
 
 /* 2nd part - about me */
 .about-me {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 25rem;
+  gap: 2rem;
   flex-wrap: wrap;
   margin-bottom: 50px;
 }
@@ -113,14 +105,13 @@ header img {
 }
 
 .about-me p {
-  width: 500px;  
+  width: 500px;
   height: 200px;
 }
 
 footer {
   text-align: center;
 }
-
 
 /* To make text in identity-values blog post and learning plan blog post more readable. */
 .style {
