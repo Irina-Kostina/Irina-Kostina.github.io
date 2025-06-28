@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My blog</title>
+    <link href="/styles/main.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,200..900;1,7..72,200..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,200..900;1,7..72,200..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <img src="/styles/img/graduate-cap-svgrepo-com.svg" alt="logo">
+      <div class="menu">
+        <a href="/index.html">Home</a>
+        <a href="/blog/te-houtaewa-template.html">Te houtaewa</a>
+        <a href="/blog/html-css.html">Using classes vs. ids</a>
+        <a href="/blog/identity-values.html">Identity Values</a>
+        <a href="/blog/learning-plan.html">Learning Plan</a>
+        <a href="/blog/emotional-intelligence.html">Emotional Intelligence</a>
+        <a href="/blog/javascript-dom.html">Javascript DOM</a>
+      </div>
+    </header>
+
+    <h1>How HTML, CSS, and JavaScript work together.</h1>
+    <h3>
+      When I first started learning how websites work, I needed a simple way to
+      understand the relationship between HTML, CSS, and JavaScript.
+    </h3>
+    <p>Think of building a website like building a house.</p>
+    <p><strong>— HTML</strong> is the structure (walls, doors).</p>
+    <p><strong>— CSS</strong> is the style (paint, furniture).</p>
+    <p><strong>— JavaScript</strong> is the behavior (lights, movement).</p>
+
+    <h2>HTML (the structure)</h2>
+    <p>
+      This gives us a title, some text, and a button. But it’s plain and doesn’t
+      do anything. This is the foundation. Without it, there's nothing to look
+      at.
+    </p>
+    <pre><code>
+      &lt;h1&gt;Welcome to my website&lt;/h1&gt;
+      &lt;p&gt;This is a short description.&lt;/p&gt;
+      &lt;button&gt;Click me&lt;/button&gt;
+    </code></pre>
+
+    <h2>CSS (the style)</h2>
+    <p>Now we paint the walls and hang up curtains.</p>
+    <pre><code>
+h1 {
+  color: darkblue;
+}
+
+button {
+  background-color: coral;
+  border-radius: 8px;
+  padding: 10px;
+}
+    </code></pre>
+    <p>Now the heading is blue and the button looks nice.</p>
+    <h2>JavaScript (the interaction)</h2>
+    <p>
+      JavaScript is what makes the house “smart.” We press the button and
+      something happens.
+    </p>
+    <pre><code>
+    document.querySelector("button").addEventListener("click", function() {
+      alert("You clicked the button!");
+    });
+    </code></pre>
+    <p>
+      Now when someone clicks the button a pop-up message appears. JavaScript
+      made our page interactive.
+    </p>
+
+    <h1>What is Control Flow and Loops.</h1>
+    <p>
+      Think of control flow as the step-by-step instructions to complete a task.
+      Like making a cup of tea.
+    </p>
+    <h2>Step-by-Step Instructions</h2>
+    <pre><code>
+1. Boil water
+2. Put a tea bag in the cup
+3. Pour hot water into the cup
+4. Wait until it’s done brewing
+5. Take the tea bag out
+6. Add milk or sugar if you want
+7. Drink the tea
+    </code></pre>
+    <p>This is a step-by-step flow. The same as how code runs line by line.</p>
+
+    <h2>Loop Example</h2>
+    <p>We check if the kettle is done boiling. If not, we keep checking.</p>
+    <pre><code>
+while (kettleIsNotBoiled) {
+  checkKettle();
+}
+    </code></pre>
+    <p>
+      You’re repeating the check until the kettle boils. That’s a loop. Keep
+      doing something while a condition is true.
+    </p>
+    <h2>If Statement Example</h2>
+    <p>This is a condition. Only add milk if the person wants it.</p>
+    <pre><code>
+// JavaScript code
+if (wantsMilk) {
+  addMilk();
+}
+    </code></pre>
+
+    <h2>Summary</h2>
+    <ul>
+      <li><strong>Control flow</strong> = steps followed one by one</li>
+      <li>
+        <strong>If statement</strong> = do something only if a condition is true
+      </li>
+      <li>
+        <strong>Loop</strong> = keep doing something until a condition changes
+      </li>
+    </ul>
+
+    <h1>What is the DOM?</h1>
+    <p>
+      DOM stands for Document Object Model. It’s like a map of the web page that
+      browser creates when it loads an HTML file.
+    </p>
+    <p>
+      JavaScript uses the DOM to see and change what's on the page. Like
+      updating text, hiding elements, or changing styles.
+    </p>
+    <h2>Example of interacting with the DOM</h2>
+
+    <h3>Let’s say we have this HTML</h3>
+    <pre><code>&lt;p id="message"&gt;Hello!&lt;/p&gt;
+    &lt;button&gt;Change Message&lt;/button&gt;</code></pre>
+
+    <h3>And this JavaScript</h3>
+    <pre><code>document.querySelector("button").addEventListener("click", function() {
+      document.getElementById("message").textContent = "You clicked the button!";
+    });</code></pre>
+
+    <p>
+      When we click the button, JavaScript finds the paragraph (using the DOM),
+      and changes its text. That’s interacting with the DOM.
+    </p>
+    <p>
+      Overall, without the DOM, our page would just sit there and never respond
+      to anything. No clicks, no updates, nothing.
+    </p>
+
+    <h1>Difference between accessing data from Arrays and Objects</h1>
+
+    <h2>Arrays</h2>
+    <p>
+      An array is an <strong>ordered list</strong> of items. Each item has a
+      number (called an index), starting from 0.
+    </p>
+
+    <pre><code>let fruits = ["apple", "banana", "cherry"];</code></pre>
+
+    <p>To access the second item in the array we write code:</p>
+    <pre><code>console.log(fruits[1]);</code></pre>
+    <p>The output will be "banana"</p>
+
+    <p>
+      Arrays are useful when we need to store a list and care about the order of
+      the items.
+    </p>
+
+    <h2>Objects</h2>
+    <p>
+      An object stores <strong>key–value pairs</strong>. We access the data
+      using the key (also called a property name), not a number.
+    </p>
+
+    <pre><code>let person = {
+    name: "John",
+    age: 35,
+    job: "sailor"
+  };</code></pre>
+
+    <p>To access the person’s job:</p>
+    <pre><code>console.log(person["job"]);</code></pre>
+
+    <p>Objects are useful when each piece of data has a label or identifier.</p>
+
+    <h1>What are Functions and why are they helpful?</h1>
+    <p>A function is a reusable block of code that performs a specific task. We can think of it like a mini-program inside a bigger program. </br> Instead of writing the same code again and again, we can write it once inside a function, and then run (or “call”) that function whenever we need it.</p>
+    <p>Functions are useful because they help to write cleaner, more efficient, and more organized code.</p>
+
+    <h2>Example of a Function</h2>
+    <p>This function says hello</p>
+      <pre><code>
+    function greet() {
+      console.log("Hello!");
+    }
+
+    greet(); 
+      </code></pre>
+
+    <h2>Function with a Parameter</h2>
+    <p>This function greets a person by name</p>
+      <pre><code>
+    function greet(name) {
+      console.log("Hello, " + name + "!");
+    }
+
+    greet("Anna"); 
+    greet("Leo");   
+      </code></pre>
+
+    <p>In this example, <code>name</code> is a <strong>parameter.</strong>It lets the function work with different inputs.</p>
+    <p>Functions help to avoid repeating code by letting reuse the same block whenever needed.</p>
+
+
+   
+  </body>
+</html>

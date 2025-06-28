@@ -14,8 +14,8 @@ body {
 }
 
 .menu {
-  display: flex;
-  gap: 30px; /* Adds space between links */
+  /* display: flex; */
+  gap: 10px; /* Adds space between links */
   align-items: center;
   /* padding-right: 150px; */
 }
@@ -88,7 +88,7 @@ header img {
 
 /* 2nd part - about me */
 .about-me {
-  font-family: 'Roboto', sans-serif;
+  /* font-family: 'Roboto', sans-serif; */
   display: flex;
   align-items: center;
   justify-content: center;
