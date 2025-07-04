@@ -1,23 +1,39 @@
+html {
+  scroll-behavior: smooth;
+}
+
+
 header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 20px 0;
+  padding: 20px 50px;
+  background-color: #e3dbd3;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  gap: 30px; 
 }
+
 
 body {
   background-color: #e3dbd4;
   color: #484848;
   font-family: 'Literata', serif;
-  padding: 0 150px 0 150px;
+  padding: 0 50px;
   margin: 0;
+  padding-top: 100px;
 }
 
+
 .menu {
-  /* display: flex; */
-  gap: 10px; /* Adds space between links */
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
   align-items: center;
-  /* padding-right: 150px; */
+  justify-content: flex-start; 
 }
 
 .menu a {
@@ -65,14 +81,14 @@ header img {
 /* stack them on small screens */
 @media (max-width: 768px) {
   .intro,
-  .about-me {
+  #about-me {
     flex-direction: column;
     text-align: center;
     gap: 1rem;
   }
 
   .intro img,
-  .about-me img {
+  #about-me img {
     max-width: 100%;
   }
 
@@ -81,13 +97,13 @@ header img {
   }
 
   .intro h1,
-  .about-me h1 {
+  #about-me h1 {
     font-size: clamp(1.5rem, 2vw, 5rem);
   }
 }
 
 /* 2nd part - about me */
-.about-me {
+#about-me {
   /* font-family: 'Roboto', sans-serif; */
   display: flex;
   align-items: center;
@@ -97,21 +113,105 @@ header img {
   margin-bottom: 50px;
 }
 
-.about-me img {
+#about-me img {
   width: 400px;
   height: auto;
   border-radius: 20px;
   max-width: 100%;
 }
 
-.about-me p {
+#about-me p {
   width: 500px;
   height: 200px;
 }
 
+/* BLOG POSTS Section */
+
+
+#posts {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+#posts h1 {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  text-align: center;
+  color: #2f3a4e;
+  border-bottom: 2px solid #5b1111;
+  display: inline-block;
+}
+
+.post-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.post-title {
+  width: 280px;
+  height: 250px;
+  background-color: #2f3a4e;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.post-title img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover; 
+  background-color: #fff;
+} 
+
+.post-title a {
+  margin-top: 0;
+  padding: 15px;
+  text-align: center;
+  text-decoration: none;
+  color: #e3dbd4;
+  font-weight: bold;
+  font-size: 1.1rem;
+  background-color: #2f3a4e;
+}
+
+.post-title a:hover {
+  color: #fcec85;
+  
+}
+
+
+/* BLOG POSTS Section end */
+
+
+
+/* Footer Contacts */
+
 footer {
   text-align: center;
 }
+#footer-contacts a {
+  text-decoration: none;
+  color: #484848;
+  font-family: 'Roboto', sans-serif;
+  /* font-weight: 500;
+   transition: color 0.3s; */
+  display: inline-block;
+  padding: 8px 20px;
+  border-radius: 30px;
+  font-weight: 450;
+  transition: background-color 0.3s, color 0.3s;
+}
+#footer-contacts a:hover {
+  background-color: #484848;
+  color: #e3dbd4;
+}
+
+
+
 
 /* To make text in identity-values blog post and learning plan blog post more readable. */
 .style {
