@@ -1,12 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,200..900&display=swap');
 
-
-
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 50px;
 }
-
 
 header {
   display: flex;
@@ -22,20 +19,21 @@ header {
   gap: 30px; 
 }
 
-
 body {
   background-color: #e3dbd4;
   color: #484848;
   font-family: 'Literata', serif;
-  padding: 0 50px;
   margin: 0;
-  padding-top: 100px;
-  
+  padding: 100px 50px 0 50px;
+  position: relative; /* Needed for ::before to position correctly */
+  min-height: 100vh;
+  overflow-x: hidden;
+  text-align: justify; 
 }
 
 body::before {
   content: "";
-  position: absolute;
+  position: fixed; /* Makes it stay while scrolling */
   top: 0;
   left: 0;
   width: 100%;
@@ -43,9 +41,26 @@ body::before {
   background-image: url("/styles/img/background2.JPG");
   background-size: cover;
   background-position: center;
-  opacity: 0.10;
+  background-repeat: no-repeat;
+  opacity: 0.40;
   z-index: -1;
 }
+
+/* Only apply this for the homepage */
+body.home .layout-container {
+  display: block; /* Remove flex layout */
+  padding-left: 0;
+  margin-left: 0;
+}
+
+body.home main {
+  margin: 0 auto;
+  padding: 40px;
+  max-width: 1200px;
+  display: block;
+  text-align: left;
+}
+
 
 .menu {
   display: flex;
@@ -81,6 +96,16 @@ header img {
 }
 
 /* 1st part - intro */
+.intro {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap; /* allows it to stack on small screens */
+  margin-bottom: 50px;
+
+}
+
 .intro img {
   width: 400px;
   height: auto;
@@ -88,14 +113,12 @@ header img {
   max-width: 100%;
 }
 
-.intro {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 2rem;
-  flex-wrap: wrap;
-  margin-bottom: 50px;
+.intro-text {
+  max-width: 600px;
+  flex: 1; /* makes text and image share row better */
 }
+
+
 
 /* stack them on small screens */
 @media (max-width: 768px) {
@@ -123,7 +146,6 @@ header img {
 
 /* 2nd part - about me */
 #about-me {
-  /* font-family: 'Roboto', sans-serif; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -133,7 +155,6 @@ header img {
   padding-top: 50px;
   margin-top: -50px;
 }
-
 
 #about-me img {
   width: 400px;
@@ -148,7 +169,6 @@ header img {
 }
 
 /* BLOG POSTS Section */
-
 a {
   text-decoration: none;
   color: inherit;
@@ -158,9 +178,6 @@ a {
   padding: 50px 20px;
   text-align: center;
 }
-
-
-
 
 .post-grid {
   display: flex;
@@ -184,6 +201,7 @@ a {
   font-size: 1.1rem;
   transition: transform 0.3s ease;
 }
+
 .post-title:hover {
   transform: translateY(-5px);
   color: #fcec85;
@@ -195,31 +213,7 @@ a {
   object-fit: cover; 
   background-color: #fff;
 }
-
-/* .post-title {
-  width: 280px;
-  height: 250px;
-  background-color: #2f3a4e;
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-} 
-
-.post-title img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover; 
-  background-color: #fff;
-} */
-
-
-
-
 /* BLOG POSTS Section end */
-
-
 
 /* Footer Contacts */
 
@@ -243,10 +237,69 @@ footer {
   color: #e3dbd4;
 }
 
-
-
-
-/* To make text in identity-values blog post and learning plan blog post more readable. */
-.style {
+/* Sidebar for blog posts */
+main {
+  flex: 1;
+  padding: 0;
+  /* margin-left: 50px; */
+  max-width: 900px;
+  font-size: 1.1rem;
   line-height: 1.6;
+  position: relative;
+  z-index: 1;
+  background-color: #e3dbd3;
+  border-radius: 20px;
+  padding: 40px;
+  margin: 20px;
+  
 }
+
+.layout-container {
+  display: flex;
+  gap: 100px;
+}
+
+/* Sidebar styles */
+.sidebar {
+  width: 220px;
+  background-color: #e3dbd3;
+  border-radius: 20px;
+  color: #484848;
+  padding: 20px;
+  height: fit-content;
+  position: sticky;
+  top: 100px; /* If you have a header, give space for it */
+  align-self: flex-start;
+  border-right: 1px solid #ddd;
+  z-index: 2;
+}
+
+.sidebar h3 {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar li {
+  margin-bottom: 10px;
+}
+
+.sidebar a {
+  text-decoration: none;
+  color: #484848;
+  font-weight: 500;
+  border-radius: 30px;
+  padding: 6px 12px;
+  display: inline-block;
+}
+
+.sidebar a:hover {
+  color: #e3dbd4;
+  background-color: #484848;
+}
+/* Sidebar styles end */
