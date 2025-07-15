@@ -46,7 +46,7 @@ body::before {
   z-index: -1;
 }
 
-/* Only apply this for the homepage */
+/* Only for the homepage */
 body.home .layout-container {
   display: block; /* Remove flex layout */
   padding-left: 0;
@@ -95,29 +95,33 @@ header img {
   margin: 0;
 }
 
-/* 1st part - intro */
-.intro {
+/* Flex for intro and about me */
+.intro,
+#about-me {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 2rem;
-  flex-wrap: wrap; /* allows it to stack on small screens */
-  margin-bottom: 50px;
+  gap: 40px;
+  margin-bottom: 60px;
+  flex-wrap: wrap;
+}
+
+.intro .text,
+.intro .img,
+#about-me .text,
+#about-me .img {
+  flex: 1 1 300px;
+  max-width: 500px;
 
 }
 
-.intro img {
+.intro img,
+#about-me img {
   width: 400px;
   height: auto;
   border-radius: 20px;
   max-width: 100%;
 }
-
-.intro-text {
-  max-width: 600px;
-  flex: 1; /* makes text and image share row better */
-}
-
 
 
 /* stack them on small screens */
@@ -142,30 +146,6 @@ header img {
   #about-me h1 {
     font-size: clamp(1.5rem, 2vw, 5rem);
   }
-}
-
-/* 2nd part - about me */
-#about-me {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 2rem;
-  flex-wrap: wrap;
-  margin-bottom: 50px;
-  padding-top: 50px;
-  margin-top: -50px;
-}
-
-#about-me img {
-  width: 400px;
-  height: auto;
-  border-radius: 20px;
-  max-width: 100%;
-}
-
-#about-me p {
-  width: 500px;
-  height: 200px;
 }
 
 /* BLOG POSTS Section */
@@ -219,7 +199,13 @@ a {
 
 footer {
   text-align: center;
+  margin-top: 7px;
 }
+
+footer p {
+  margin-top: 0;
+}
+
 #footer-contacts a {
   text-decoration: none;
   color: #484848;
@@ -268,7 +254,7 @@ main {
   padding: 20px;
   height: fit-content;
   position: sticky;
-  top: 100px; /* If you have a header, give space for it */
+  top: 100px; 
   align-self: flex-start;
   border-right: 1px solid #ddd;
   z-index: 2;
