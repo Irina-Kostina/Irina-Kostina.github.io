@@ -124,7 +124,7 @@ header img {
 }
 
 
-/* stack them on small screens */
+/* For small screens main page */
 @media (max-width: 768px) {
   .intro,
   #about-me {
@@ -195,23 +195,10 @@ a {
 }
 /* BLOG POSTS Section end */
 
-/* Footer Contacts */
-
-footer {
-  text-align: center;
-  margin-top: 7px;
-}
-
-footer p {
-  margin-top: 0;
-}
-
 #footer-contacts a {
   text-decoration: none;
   color: #484848;
   font-family: 'Roboto', sans-serif;
-  /* font-weight: 500;
-   transition: color 0.3s; */
   display: inline-block;
   padding: 8px 20px;
   border-radius: 30px;
@@ -221,6 +208,54 @@ footer p {
 #footer-contacts a:hover {
   background-color: #484848;
   color: #e3dbd4;
+}
+
+/* For small screens blog post pages */
+@media (max-width: 768px) {
+  .layout-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .sidebar {
+    width: 100%;
+    margin-bottom: 20px;
+    font-size: clamp(1.5rem, 2vw, 5rem);
+  }
+
+  main {
+    width: 100%;
+    font-size: clamp(1.5rem, 2vw, 5rem);
+  }
+
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: clamp(1.5rem, 2vw, 5rem);
+  }
+
+  header .menu {
+    margin-top: 10px;
+    font-size: clamp(1.5rem, 2vw, 5rem);
+  }
+
+  header .menu a {
+    margin-left: 0;
+    margin-right: 15px;
+    font-size: clamp(1.5rem, 2vw, 5rem);
+  }
+}
+
+/* Footer Contacts */
+
+footer {
+  text-align: center;
+  margin-top: 7px;
+}
+
+footer p {
+  margin-top: 0;
 }
 
 /* Sidebar for blog posts */
@@ -288,4 +323,14 @@ main {
   color: #e3dbd4;
   background-color: #484848;
 }
+
+.sidebar a:active {
+  color: #e6eef3;
+  background-color: #65737b;
+}
+.sidebar a.active {
+  color: #e3dbd4;
+  background-color: #484848;
+}
 /* Sidebar styles end */
+
