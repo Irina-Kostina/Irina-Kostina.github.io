@@ -1,0 +1,242 @@
+/* -------- Base / Theme -------- */
+:root{
+  --bg: #ffffff;
+  --text: #101218;
+  --muted: #6b7280;
+  --panel: #f6f7fb;
+  --line: #e6e8ef;
+  --accent: #7c5cff;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family: Inter, system-ui, Arial, sans-serif;
+  color:var(--text);
+  background: var(--bg);
+}
+img{max-width:100%;display:block;height:auto}
+a{color:var(--text);text-decoration:none}
+.container{max-width:1100px;margin:0 auto;padding:0 20px}
+section{scroll-margin-top:80px}
+
+/* -------- Nav -------- */
+.nav{
+  position: sticky; top:0; z-index:50;
+  background: rgba(255,255,255,.85);
+  backdrop-filter: blur(8px);
+  border-bottom:1px solid var(--line);
+}
+.nav__inner{height:64px; display:flex; align-items:center; justify-content:space-between}
+.logo{font-weight:800; letter-spacing:.3px}
+.nav__links a{margin-left:20px; font-weight:700}
+.nav__links a:hover{color:var(--accent)}
+.nav__toggle{display:none; width:36px; height:36px; padding:6px; cursor:pointer}
+.nav__toggle span{display:block;height:2px;background:var(--text);margin:6px 0;transition:.2s}
+.nav__checkbox{display:none}
+
+/* Mobile menu (CSS-only) */
+@media (max-width:980px){
+  .nav__toggle{display:block}
+  .nav__links{
+    position:absolute; inset:64px 0 auto 0; background:#fff; border-bottom:1px solid var(--line);
+    transform:translateY(-20px); opacity:0; pointer-events:none; transition:.2s;
+    padding:10px 20px; display:flex; gap:10px; flex-direction:column;
+  }
+  .nav__links a{margin:0; padding:10px 0}
+  #menu-toggle:checked ~ .nav__links{transform:none; opacity:1; pointer-events:auto}
+}
+
+/* -------- Hero -------- */
+.hero{padding:80px 0 40px}
+.hero__grid{
+  display:grid; grid-template-columns:1.2fr 1fr; gap:40px; align-items:center;
+}
+h1{font-size:64px; line-height:1.05; margin:0 0 12px}
+.lead{color:var(--muted); max-width:60ch; font-size:20px}
+.wave{display:inline-block; transform-origin:70% 70%; animation:wave 2.5s infinite}
+@keyframes wave{0%{transform:rotate(0)}15%{transform:rotate(14deg)}30%{transform:rotate(-8deg)}40%{transform:rotate(14deg)}50%{transform:rotate(-4deg)}60%{transform:rotate(10deg)}70%{transform:rotate(0)}100%{transform:rotate(0)}}
+
+.socials{margin:18px 0}
+.icon{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:42px; height:42px; border-radius:10px;
+  border:1px solid var(--line); color:var(--text); margin-right:10px;
+  transition:transform .15s ease, box-shadow .2s ease;
+}
+.icon:hover{transform:translateY(-2px); box-shadow:0 6px 18px rgba(0,0,0,.08)}
+
+.hero__photo{ justify-self:end }
+.hero__photo img{
+  width:280px; aspect-ratio: 1 / 1; border-radius:50%;
+  object-fit:cover; border:6px solid var(--panel);
+  box-shadow:0 12px 28px rgba(0,0,0,.12);
+}
+
+/* Tech Stack bar */
+.techbar{ display:flex; align-items:center; gap:16px; margin-top:18px }
+.techbar__label{ font-weight:700; letter-spacing:.02em }
+.techbar__divider{ width:1px; height:20px; background:var(--line) }
+.techbar__icons{
+  display:flex; align-items:center; gap:22px; list-style:none; padding:0; margin:0
+}
+.techbar__icons img{
+  width:34px; height:34px;
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,.08));
+  transition: transform .15s ease, filter .2s ease;
+}
+.techbar__icons img:hover{
+  transform: translateY(-2px) scale(1.06);
+  filter: drop-shadow(0 8px 18px rgba(0,0,0,.12));
+}
+
+/* -------- About -------- */
+.section{padding:70px 0}
+.eyebrow{letter-spacing:.18em; text-transform:uppercase; font-size:12px; color:var(--muted); margin:0 0 8px}
+.eyebrow--blue{color:#2B6CFF; font-weight:800}
+h2{font-size:32px; margin:0 0 10px}
+
+.about__grid{
+  display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center;
+}
+.about__img{
+  width:100%; border-radius:18px; box-shadow:0 10px 24px rgba(0,0,0,.10);
+}
+.about__media{position:relative}
+
+/* circular badge */
+.about__badge{
+  position:absolute; left:-28px; bottom:-28px; width:150px; height:150px;
+  display:grid; place-items:center;
+  filter: drop-shadow(0 10px 20px rgba(0,0,0,.15));
+}
+.badge-svg{position:absolute; inset:0}
+.badge-svg circle{ fill:#ffffff; stroke:#e6e8ef; stroke-width:2 }
+.badge-svg text{ fill:#1f2937 }
+.badge-emoji{
+  width:64px; height:64px; border-radius:50%; background:#fff;
+  display:flex; align-items:center; justify-content:center; font-size:28px;
+  box-shadow:0 6px 18px rgba(0,0,0,.10);
+}
+/* === Rotation for the circular text ring === */
+.badge-svg{
+  animation: badge-spin 14s linear infinite; /* скорость: 14s → меняй по вкусу */
+  transform-origin: 50% 50%;
+  transform-box: fill-box; /* важно для SVG: центр вращения из viewBox */
+}
+
+@keyframes badge-spin{
+  to{ transform: rotate(360deg); }
+}
+
+/* (опционально) пауза при наведении мыши */
+.about-badge:hover .badge-svg{
+  animation-play-state: paused;
+}
+
+/* (опционально) уважать настройки «уменьшить анимацию» */
+@media (prefers-reduced-motion: reduce){
+  .badge-svg{ animation: none; }
+}
+
+
+/* -------- PORTFOLIO (like the screenshot) -------- */
+#projects { padding: 70px 0; }
+#projects h2 { margin-top: 6px; margin-bottom: 24px; }
+
+.project{
+  display: grid;
+  grid-template-columns: 1fr 1fr;  /* image | text */
+  align-items: center;
+  gap: 40px;
+  margin: 36px 0 64px;
+}
+
+.project-media img{
+  width: 100%;
+  border-radius: 18px;
+  box-shadow: 0 10px 24px rgba(0,0,0,.08);
+}
+
+.project-info{
+  text-align: center;  /* matches the reference */
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.project-info h3{
+  margin: 0 0 10px;
+  font-size: 16px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.project-desc{
+  color: #6b7280;
+  line-height: 1.55;
+  margin: 0 0 10px;
+  font-size: 14.5px;
+}
+
+.project-tags{
+  font-weight: 700;
+  margin: 6px 0 14px;
+}
+
+.project-links{
+  display: flex;
+  justify-content: center;
+  gap: 26px;
+  align-items: center;
+}
+
+.link-icon{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #101218;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.link-icon:hover{ color: #7c5cff; }
+.link-icon svg{ flex: 0 0 auto; display: block; }
+
+/* Alternate layout: image on the RIGHT */
+.project.reverse .project-media{ order: 2; }
+.project.reverse .project-info{ order: 1; }
+
+/* Responsive */
+@media (max-width: 980px){
+  .project{ grid-template-columns: 1fr; gap: 22px; margin: 26px 0 42px; }
+  .project.reverse .project-media,
+  .project.reverse .project-info{ order: initial; } /* stack normally on mobile */
+}
+
+
+/* -------- Contact / Footer -------- */
+.contact{background:linear-gradient(180deg, #fff 0%, #f9f9ff 100%); text-align:center}
+.btn{
+  display:inline-block; background:var(--accent); color:#fff; border-radius:12px;
+  padding:12px 18px; font-weight:700; border:0; box-shadow:0 10px 20px rgba(124,92,255,.25)
+}
+.footer{padding:28px 0; border-top:1px solid var(--line); text-align:center; color:var(--muted)}
+
+/* -------- Responsive -------- */
+@media (max-width:1200px){
+  h1{font-size:56px}
+}
+@media (max-width:980px){
+  .hero__grid{ grid-template-columns:1fr }
+  .hero__photo{ order: 2; justify-self:start; margin-top:16px } /* keep photo below text on mobile */
+  .about__grid{ grid-template-columns:1fr }
+  .about__badge{ left:16px; bottom:-22px; width:130px; height:130px }
+  .grid{ grid-template-columns:1fr 1fr }
+}
+@media (max-width:620px){
+  h1{font-size:40px}
+  .techbar__icons{gap:16px}
+  .techbar__icons img{width:28px; height:28px}
+  .techbar__divider{height:16px}
+  .grid{ grid-template-columns:1fr }
+}
