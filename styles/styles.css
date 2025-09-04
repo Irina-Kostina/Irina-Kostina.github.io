@@ -225,11 +225,18 @@ h2{font-size:32px; margin:0 0 10px}
   margin: 36px 0 64px;
 }
 
-.project-media img{
+.project-media img {
   width: 100%;
   border-radius: 18px;
-  box-shadow: 0 10px 24px rgba(0,0,0,.08);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);  /* soft base shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+.project-media img:hover {
+  /* transform: scale(1.02);  slight zoom */
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.18);  /* stronger shadow */
+}
+
 
 .project-info{
   text-align: center;  /* matches the reference */
@@ -273,7 +280,7 @@ h2{font-size:32px; margin:0 0 10px}
   font-weight: 700;
 }
 
-.link-icon:hover{ color: #7c5cff; }
+.link-icon:hover{ color: #ff5c5c; }
 .link-icon svg{ flex: 0 0 auto; display: block; }
 
 /* Alternate layout: image on the RIGHT */
@@ -289,11 +296,173 @@ h2{font-size:32px; margin:0 0 10px}
 
 
 /* -------- Contact / Footer -------- */
-.contact{background:linear-gradient(180deg, #fff 0%, #f9f9ff 100%); text-align:center}
-.btn{
-  display:inline-block; background:var(--accent); color:#fff; border-radius:12px;
-  padding:12px 18px; font-weight:700; border:0; box-shadow:0 10px 20px btn(124,92,255,.25)
+/* CONTACT SECTION */
+.section.contact {
+  padding: 80px 20px;
+  background: #f9fafc;
+  font-family: 'Segoe UI', sans-serif;
+  color: #222;
 }
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Title */
+.contact-title {
+  font-size: 32px;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 15px;
+  text-align: center;
+  position: relative;
+  color: #111;
+}
+
+.contact-title::after {
+  content: "";
+  display: block;
+  width: 70px;
+  height: 3px;
+  background: #e54646; /* indigo */
+  margin: 10px auto 40px;
+  border-radius: 3px;
+}
+
+/* Main layout: form + info */
+.contact-box {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  justify-content: space-between;
+  align-items: flex-start;
+  background: #fff;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+/* ---------- FORM ---------- */
+.contact-form {
+  flex: 1 1 500px;
+}
+
+.contact-form h3 {
+  margin-bottom: 25px;
+  font-size: 24px;
+  font-weight: 600;
+  color: #111;
+}
+
+.contact-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  flex: 1;
+  padding: 14px 16px;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  background: #f9fafb;
+  font-size: 15px;
+  transition: all 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #e55346;
+  background: #fff;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(229, 105, 70, 0.2);
+}
+
+.contact-form textarea {
+  min-height: 130px;
+  resize: vertical;
+}
+
+/* Send button */
+.btn-send {
+  align-self: flex-start;
+  background: #7f162f;
+  color: #fff;
+  border: none;
+  padding: 14px 28px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.btn-send:hover {
+  background: #a33034;
+  transform: translateY(-2px);
+}
+
+.btn-send:active {
+  transform: translateY(0);
+}
+
+/* ---------- INFO ---------- */
+.contact-info {
+  flex: 1 1 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 12px 0;
+}
+
+.info-item .icon {
+  font-size: 28px;
+  color: #6c1d29;
+  flex-shrink: 0;
+}
+
+.info-item h4 {
+  margin: 0 0 5px;
+  font-size: 17px;
+  font-weight: 600;
+  color: #111;
+}
+
+.info-item p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #555;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 900px) {
+  .contact-box {
+    flex-direction: column;
+    padding: 30px;
+  }
+  .contact-form,
+  .contact-info {
+    flex: 1 1 100%;
+  }
+}
+
+/* -------- Footer -------- */
+
 .footer{padding:28px 0; border-top:1px solid var(--line); text-align:center; color:var(--muted)}
 
 /* -------- Responsive -------- */
