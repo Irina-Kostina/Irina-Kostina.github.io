@@ -5,10 +5,10 @@
   --muted: #6b7280;
   --panel: #f6f7fb;
   --line: #e6e8ef;
-  --accent: #7c5cff;
+  --accent: #7c5cff #EBE9E9;
 } */
 :root {
-  --bg: #f8f0f1;
+  --bg: #EBE9E9;
   --text: #0f172a;  
   --muted: #64748b; 
   --panel: #f1f5f9; 
@@ -33,7 +33,7 @@ section{scroll-margin-top:80px}
 /* -------- Nav -------- */
 .nav{
   position: sticky; top:0; z-index:50;
-  background: rgba(255,255,255,.85);
+  background: #b512496b;
   backdrop-filter: blur(8px);
   border-bottom:1px solid var(--line);
 }
@@ -299,7 +299,7 @@ h2{font-size:32px; margin:0 0 10px}
 /* CONTACT SECTION */
 .section.contact {
   padding: 80px 20px;
-  background: #f9fafc;
+  background: #CFC0BD;
   font-family: 'Segoe UI', sans-serif;
   color: #222;
 }
@@ -476,10 +476,13 @@ h2{font-size:32px; margin:0 0 10px}
   .about__badge{ left:16px; bottom:-22px; width:130px; height:130px }
   .grid{ grid-template-columns:1fr 1fr }
 }
-@media (max-width:620px){
+@media (max-width: 620px){
   h1{font-size:40px}
-  .techbar__icons{gap:16px}
-  .techbar__icons img{width:28px; height:28px}
+  .techbar__icons{gap:16px; flex-wrap: wrap;}     /* allow wrapping instead of shrinking */
+  .techbar__icons img{
+    width:34px; height:34px;
+    flex: 0 0 34px;                                /* don’t let flexbox shrink them */
+  }
   .techbar__divider{height:16px}
-  .grid{ grid-template-columns:1fr }
 }
+
