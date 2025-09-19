@@ -218,4 +218,81 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 100 + (index * 200));
     });
 
+    // Animate timeline items on scroll
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    const timelineObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateX(0)';
+            }
+        });
+    }, { threshold: 0.3 });
+
+    timelineItems.forEach((item, index) => {
+        item.style.opacity = '0';
+        item.style.transform = 'translateX(-50px)';
+        item.style.transition = `all 0.6s ease ${index * 0.2}s`;
+        timelineObserver.observe(item);
+    });
+
+    // Animate personal stats on scroll
+    const statItems = document.querySelectorAll('.stat-item');
+    const statsObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const statNumber = entry.target.querySelector('.stat-number');
+                const finalNumber = statNumber.textContent;
+                
+                if (finalNumber !== '∞') {
+                    animateNumber(statNumber, 0, parseInt(finalNumber.replace('+', '')), 2000);
+                } else {
+                    statNumber.style.animation = 'pulse 1.5s ease-in-out infinite';
+                }
+            }
+        });
+    }, { threshold: 0.5 });
+
+    statItems.forEach(item => {
+        statsObserver.observe(item);
+    });
+
+    // Number animation function
+    function animateNumber(element, start, end, duration) {
+        const startTime = performance.now();
+        const suffix = element.textContent.includes('+') ? '+' : '';
+        
+        function updateNumber(currentTime) {
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            
+            const current = Math.floor(progress * (end - start) + start);
+            element.textContent = current + suffix;
+            
+            if (progress < 1) {
+                requestAnimationFrame(updateNumber);
+            }
+        }
+        
+        requestAnimationFrame(updateNumber);
+    }
+
+    // Add scroll-triggered animation for personal quote
+    const personalQuote = document.querySelector('.personal-quote');
+    if (personalQuote) {
+        const quoteObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.3 });
+
+        personalQuote.style.opacity = '0';
+        personalQuote.style.transform = 'translateY(30px)';
+        personalQuote.style.transition = 'all 0.8s ease 0.6s';
+        quoteObserver.observe(personalQuote);
+    }
+
 });
