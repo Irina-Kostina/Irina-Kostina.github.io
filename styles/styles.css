@@ -528,6 +528,7 @@ nav a:hover::after {
     width: 100%;          /* full width of parent */
     max-width: 800px;     /* optional: limit size */
     height: auto;
+    z-index: 1;
     
 }
 
@@ -689,12 +690,14 @@ nav a:hover::after {
 /* Project Info */
 .project-info {
     padding: 20px 0;
+    position: relative;
+  z-index: 2;
 }
 
 .project-title {
     font-size: 1.5rem;
     font-weight: 800;
-    color: #a2cdff;
+    color: #a2ffff;
     margin-bottom: 20px;
     letter-spacing: 1px;
 }
@@ -702,7 +705,7 @@ nav a:hover::after {
 .project-description {
     font-size: 1.1rem;
     line-height: 1.7;
-    color: #869ec0;
+    color: #7bcbcb;
     margin-bottom: 30px;
 }
 
@@ -890,7 +893,7 @@ nav a:hover::after {
     }
 }
 
-* Personal Story Section */
+/* Personal Story Section */
 .personal-section {
     position: relative;
     z-index: 10;

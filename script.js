@@ -130,14 +130,15 @@ document.addEventListener('DOMContentLoaded', function() {
     // Add click animation to project links
     const projectLinks = document.querySelectorAll('.project-link');
     projectLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
+        link.addEventListener('click', function() {
+            // let the link work normally (no preventDefault)
             this.style.transform = 'translateY(-2px) scale(0.95)';
             setTimeout(() => {
                 this.style.transform = 'translateY(-2px) scale(1)';
             }, 150);
         });
     });
+
 
         // Contact form handling
     const contactForm = document.getElementById('contactForm');
