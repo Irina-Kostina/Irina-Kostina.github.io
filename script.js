@@ -294,5 +294,18 @@ document.addEventListener('DOMContentLoaded', function() {
         personalQuote.style.transition = 'all 0.8s ease 0.6s';
         quoteObserver.observe(personalQuote);
     }
+emailjs.init('DhQmAp1UC95CpBNfw') // your public key
+
+document.getElementById('contactForm').addEventListener('submit', function (e) {
+  e.preventDefault()
+
+  emailjs.sendForm('service_dqdkgo1', 'template_x76tlxj', this)
+    .then(function () {
+      alert('✅ Message sent!')
+    }, function (error) {
+      console.error('❌ Error:', error)
+      alert('Failed to send. Try again later.')
+    })
+})
 
 });
