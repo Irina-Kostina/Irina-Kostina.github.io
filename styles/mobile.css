@@ -1,0 +1,396 @@
+/* Enhanced Mobile Responsive Styles */
+
+/* Mobile Navigation */
+.mobile-nav-toggle {
+    display: none;
+    position: fixed;
+    top: 25px;
+    right: 20px;
+    z-index: 1001;
+    background: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(20, 184, 166, 0.2);
+    border-radius: 10px;
+    padding: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.mobile-nav-toggle:hover {
+    border-color: rgba(20, 184, 166, 0.4);
+}
+
+.mobile-nav-toggle span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: #14b8a6;
+    margin: 5px 0;
+    transition: all 0.3s ease;
+    border-radius: 2px;
+}
+
+.mobile-nav {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(20px);
+    z-index: 1000;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
+.mobile-nav.active {
+    display: flex;
+}
+
+.mobile-nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    text-align: center;
+}
+
+.mobile-nav a {
+    color: #94a3b8;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.mobile-nav a:hover {
+    color: #14b8a6;
+}
+
+.mobile-nav-close {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    font-size: 2rem;
+    color: #14b8a6;
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+    /* Hide desktop nav, show mobile nav toggle */
+    nav {
+        display: none;
+    }
+    
+    .mobile-nav-toggle {
+        display: block;
+    }
+    
+    /* Brand adjustments */
+    .brand {
+        left: 20px;
+        font-size: 20px;
+    }
+    
+    /* Hero Section Mobile */
+    .container {
+        padding: 0 15px;
+        min-height: 100vh;
+        padding-top: 80px;
+    }
+    
+    .hero-content {
+        gap: 30px;
+    }
+    
+    .hero-title {
+        font-size: clamp(2.5rem, 12vw, 4rem);
+        line-height: 1.1;
+        margin-bottom: 15px;
+    }
+    
+    .greeting {
+        font-size: 1rem;
+        margin-bottom: 8px;
+    }
+    
+    .description {
+        font-size: 1rem;
+        line-height: 1.5;
+        margin-bottom: 30px;
+    }
+    
+    .cta-button {
+        padding: 12px 30px;
+        font-size: 1rem;
+        margin-top: 15px;
+    }
+    
+    /* Profile Card Mobile */
+    .profile-card {
+        padding: 25px 15px;
+        max-width: 100%;
+    }
+    
+    .profile-image {
+        width: 150px;
+        height: 150px;
+        margin-bottom: 20px;
+    }
+    
+    .social-links {
+        gap: 15px;
+        margin-bottom: 30px;
+        justify-content: center;
+    }
+    
+    .social-link {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .tech-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 12px;
+    }
+    
+    .tech-item {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .tech-title {
+        font-size: 1rem;
+        margin-bottom: 15px;
+    }
+    
+    /* About Section Mobile */
+    .about-section {
+        padding: 60px 15px;
+    }
+    
+    .about-title {
+        font-size: clamp(1.8rem, 8vw, 2.5rem);
+        margin-bottom: 20px;
+    }
+    
+    .about-description {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+    
+    .center-image {
+        width: 280px;
+        height: 320px;
+        margin: 0 auto;
+    }
+    
+    /* Projects Section Mobile */
+    .projects-section {
+        padding: 60px 15px;
+    }
+    
+    .projects-title {
+        font-size: clamp(1.8rem, 8vw, 2.5rem);
+        margin-bottom: 20px;
+    }
+    
+    .project-card {
+        gap: 30px;
+    }
+    
+    .project-title {
+        font-size: 1.2rem;
+        margin-bottom: 15px;
+    }
+    
+    .project-description {
+        font-size: 1rem;
+        line-height: 1.5;
+        margin-bottom: 20px;
+    }
+    
+    .tech-stack-tags {
+        gap: 8px;
+        margin-bottom: 20px;
+    }
+    
+    .tech-tag {
+        font-size: 0.8rem;
+        padding: 5px 12px;
+    }
+    
+    .project-links {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .project-link {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+        text-align: center;
+    }
+    
+    /* Personal Section Mobile */
+    .personal-section {
+        padding: 60px 15px;
+    }
+    
+    .personal-title {
+        font-size: clamp(1.8rem, 8vw, 2.5rem);
+        margin-bottom: 30px;
+    }
+    
+    .story-paragraph {
+        font-size: 1rem;
+        line-height: 1.6;
+        margin-bottom: 20px;
+    }
+    
+    .personal-quote {
+        padding: 20px;
+        margin-top: 30px;
+    }
+    
+    .personal-quote blockquote {
+        font-size: 1.1rem;
+    }
+    
+    .journey-timeline {
+        padding: 20px;
+    }
+    
+    .timeline-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 15px;
+    }
+    
+    .personal-stats {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        padding: 20px;
+    }
+    
+    .stat-number {
+        font-size: 2rem;
+    }
+    
+    /* Contact Section Mobile */
+    .contact-section {
+        padding: 60px 15px;
+    }
+    
+    .contact-title {
+        font-size: clamp(1.8rem, 8vw, 2.5rem);
+        margin-bottom: 20px;
+    }
+    
+    .contact-description {
+        font-size: 1rem;
+        line-height: 1.6;
+        margin-bottom: 30px;
+    }
+    
+    .contact-form-container {
+        padding: 25px 15px;
+    }
+    
+    .contact-method {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+        padding: 15px;
+    }
+    
+    .contact-icon {
+        font-size: 1.5rem;
+        width: 50px;
+        height: 50px;
+    }
+    
+    /* Footer Mobile */
+    .footer-container {
+        padding: 40px 15px 20px;
+    }
+    
+    .footer-links {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: center;
+    }
+    
+    .footer-bottom {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 10px;
+        padding-top: 70px;
+    }
+    
+    .hero-title {
+        font-size: clamp(2rem, 15vw, 3rem);
+    }
+    
+    .description {
+        font-size: 0.9rem;
+    }
+    
+    .profile-card {
+        padding: 20px 10px;
+    }
+    
+    .profile-image {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .social-links {
+        gap: 12px;
+    }
+    
+    .social-link {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .tech-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+    }
+    
+    .tech-item {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .cta-button {
+        padding: 10px 25px;
+        font-size: 0.9rem;
+    }
+    
+    .center-image {
+        width: 250px;
+        height: 280px;
+    }
+    
+    .about-section,
+    .projects-section,
+    .personal-section,
+    .contact-section {
+        padding: 50px 10px;
+    }
+}
